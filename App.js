@@ -5,10 +5,17 @@
 // root.appendChild(h1);
 // console.log(document.getElementById("root"));
 
-const heading = React.createElement("div", { id: "parent" }, [
-  React.createElement("h1", { id: "heading1" }, "Hello Bro!"),
-  React.createElement("h2", { id: "heading2" }, "Hello Bro!"),
-]);
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const App = () => {
+  return (
+    <div>
+      <h1>Hello Bro 💯</h1>
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(heading);
+root.render(<App />);
