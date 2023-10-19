@@ -1,3 +1,7 @@
+# How, Why, WHen?
+
+Most imp. questions
+
 # Git
 
 git init
@@ -20,6 +24,14 @@ npx parcel index.html --https
 # Transitive dependencies
 
 Dependencies "parcel" using other dependencies eg:-"babel" is known as TD
+
+# Component Composition
+
+Using one Componenet into another
+
+# How does JSX prevent XSS?
+
+JSX is not only convenient, but also safe, because it automatically escapes any user input or dynamic values before rendering them to the DOM. This means that any potentially harmful scripts or HTML tags are converted into plain text and cannot execute.
 
 # Parcel
 
@@ -65,7 +77,7 @@ No key Not Acceptable Use index last option
 It makes developer experience easy
 it make su write less code and do more, thi sis th emain job of UI library or framework
 
-# Why react component begin with captal letter
+# Why react component begin with capital letter
 
 This convention is because only HTML elements and SVG tags can begin with a lowercase letter.
 React treats components starting with lowercase letters as DOM tags.
@@ -81,10 +93,67 @@ React treats components starting with lowercase letters as DOM tags.
 it can do
 faster dom menupulation
 efficient dom menupulation
-irtual dom
+virtual dom
 cliff algo
 reconcillation
 react fiber
+
+# React do?
+
+development experience easier write less code and do more, make code experience fast.
+
+React is fast in DOM menupulation
+Fater and efficient dom Menupulation
+Virtual dom
+cliff algo
+reconcillation
+
+# Reconciliation?
+
+Reconciliation is the process through which React updates the Browser DOM.
+
+# why usestate willhave updated function
+
+Because React Fiber needs a trigger to start diff algo and updated UI
+
+# Monolith & Microservice
+
+- Monolith:- APin code, UI code, Auth code, DB connectivity code, SMs send code in same project
+- IF some minimal change then BUILD -> COMPILE -> DEPLOY bulky project tHis is monolethic arcticture
+- all different work developers have to work over same project
+
+- Microservice Arcticture :- In this Diff. service in diff job Backend service Ui job Auth service, DB service that connect to db, service of sms sending, service of email notification
+
+- All service combine to form a big app
+
+- UBER follow on micro service depend upon use case all microservice talk to each other
+- Each and every small service/thing we have seperate project known as seperation of concern and SINGLE RESPONSIBILITY PRINCIPLE
+- WHERE each every service have their own job
+- With microservice arcticture all teams work over own different service
+
+- Each service mension above written in sam elanguage in MONOLITHIC Arcticture
+
+// Each service mension above written in DIFFERENT language(java , react, golang) in MICROSERVICE Arcticture
+
+// All service in MICROSERVICE Arcticture run on their own specific port
+
+- communicate with each other like
+- all port map to domain name
+- UI(/), Backend(/api), SMS(/sms) communicate through making call to that port
+
+- A soon as page loads --> make api request --. render DATA(UI)
+
+- As soon as page lods --> quickly rende UI --> NOw make API CAll --> Then rerender our application with new data.
+- In React use thi sapproch
+- React render UI very fast
+
+- As Soon As the body render cycle finished then after the useeffect called
+
+- Hook is a type of function at the end of day but it has some specific purpose
+
+# CORS error?
+
+has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 
 # when ever the state variables udates react updateds dome known as render
 
@@ -98,7 +167,7 @@ How ReConcillation
 pres button
 3 card
 
-react creates virtual dom which is representation of actual dom
+react creates virtual dom which is the JAVASCRIPT representation of actual dom
 
 diff algo find the diff between virtual and actual dom on every render cycle
 
@@ -232,8 +301,6 @@ A monolithic architecture is a singular, large computing network with one code b
 
 // Attack through Browser is known as Cross-side scripting [ JSX take care of INJECTION ATTACKS prevet from cross-site scripting / JSX FIRST sanitise data and then run ]
 
-// Component Composition :- Using one Componenet to another
-
 // React.createElement==>ReactElement(Object) ==> HTMLElement(By render)
 
 // JSX => BABEL is transpile to React.createElement ==> converted to ReactELement(Object) ==> HTMLElement(By render)
@@ -288,39 +355,6 @@ A monolithic architecture is a singular, large computing network with one code b
 const arr = useState(data);
 const listOfResturants = arr[0];
 const setListOfResturants = arr[1];
-
-// Monolith:- APin code, UI code, Auth code, DB connectivity code, SMs send code in same project
-// IF some minimal change then BUILD -> COMPILE -> DEPLOY bulky project tHis is monolethic arcticture
-// all different work developers have to work over same project
-
-// Microservice Arcticture :- In this Diff. service in diff job Backend service Ui job Auth service, DB service that connect to db, service of sms sending, service of emial notification
-
-// All service combine to form a big app
-
-// UBER follow on micro service depend upon use case all microservice talk to each other
-// Each and every small service/thing we have seperate project known as seperation of concern and SINGLE RESPONSIBILITY PRINCIPLE
-//WHERE each every service have their own job
-// With microservice arcticture all teams work over own different service
-
-// Each service mension above written in sam elanguage in MONOLITHIC Arcticture
-
-// Each service mension above written in DIFFERENT language(java , react, golang) in MICROSERVICE Arcticture
-
-// All service in MICROSERVICE Arcticture run on their own specific port
-
-// communicate with each other like
-// all port map to domain name
-// UI(/), Backend(/api), SMS(/sms) communicate through making call to that port
-
-// A soon as page loads --> make api request --. render DATA(UI)
-
-// As soon as page lods --> quickly rende UI --> NOw make API CAll --> Then rerender our application with new data.
-// In React use thi sapproch
-// React render UI very fast
-
-// As Soon As the body render cycle finished then after the useeffect called
-
-// Hook is a type of function at the end of day but it has some specific purpose
 
 // useEffect will called after every render when dependency array is not there means
 // useEffect(() => {
@@ -481,16 +515,6 @@ https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.6244806999
 - React will clean the container and rerender all components
 - if key is present reat will only render that card only
 - Index is not recommended
-
-# React do?
-
-development experience easier write less code and do more, make code experience fast.
-
-React is fast in DOM menupulation
-Fater and efficient dom Menupulation
-Virtual dom
-cliff algo
-reconcillation
 
 # React hooks
 

@@ -5,13 +5,16 @@
 // root.appendChild(h1);
 // console.log(document.getElementById("root"));
 
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
+import Navbar from "../components/Navbar";
+import Body from "../components/Body";
 
 const App = () => {
   return (
     <div>
-      <h1>Hello Bro 💯</h1>
+      <Navbar />
+      <Body />
     </div>
   );
 };
