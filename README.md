@@ -9,9 +9,38 @@ git push -u origin main
 
 # crossorigin?
 
+React, and other Liberaries and Framework build with a compt of Menupulation of DOM with JS
+
+The crossorigin attribute sets the mode of the request to an HTTP CORS Request. Web pages often make requests to load resources on other servers. Here is where CORS comes in. A cross-origin request is a request for a resource (e.g. style sheets, iframes, images, fonts, or scripts) from another domain.
+
 # How to load in https
 
 npx parcel index.html --https
+
+# Transitive dependencies
+
+Dependencies "parcel" using other dependencies eg:-"babel" is known as TD
+
+# Parcel
+
+-Dev Build
+-Local Server
+-HMR = Hot Module Replacement
+-File Watching Algorithm -written in C++
+-Caching - Faster Builds
+-Image Optimization
+-Minification of files
+-Bundling
+-compress(remove white space)
+-Consistent Hashing ?
+-code splitting
+-Differential Bundling [app can be open in new as well as old browsers when use <script type="module"></script></script> parcel automatically generate a nodemodule fallback for all browsers ]
+-Diagnostics (Beautiful error suggestion in terminal)
+-Error Handling
+-HTTPS [npx parcel index.html --https lodes in https mode not http]
+-Tree shaking - remove unuse code
+
+-Different dev and prod bundles(build)
 
 # prod build
 
@@ -128,27 +157,6 @@ Break down code into diff diff small modules(havve single responsibility)
 #
 
 # React a deep approach
-
-# Parcel
-
--Dev Build
--Local Server
--HMR = Hot Module Replacement
--File Watching Algorithm -written in C++
--Caching - Faster Builds
--Image Optimization
--Minification of files
--Bundling
--compress(remove white space)
--Consistent Hashing ?
--code splitting
--Differential Bundling [app can be open in new as well as old browsers when use <script type="module"></script></script> parcel automatically generate a nodemodule fallback for all browsers ]
--Diagnostics (Beautiful error suggestion in terminal)
--Error Handling
--HTTPS [npx parcel index.html --https lodes in https mode not http]
--Tree shaking - remove unuse code
-
--Different dev and prod bundles(build)
 
 // filter item form search bar
 {listOfResturants

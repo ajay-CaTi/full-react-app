@@ -1,0 +1,22 @@
+{
+  "name": "oc",
+  "version": "1.0.0",
+  "description": "this is react app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajay-CaTi/full-react-app.git"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajay-CaTi/full-react-app/issues"
+  },
+  "homepage": "https://github.com/ajay-CaTi/full-react-app#readme",
+  "devDependencies": {
+    "parcel": "^2.10.0"
+  }
+}
