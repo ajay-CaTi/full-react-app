@@ -757,7 +757,9 @@ When ever an instance of class created or invoked first constructer then render 
 
 # async is not used with useEffcet(){}?
 
-# constructor and super()?
+# async is not used with componentDidMount(){}?
+
+# constructor and super()? WhY????
 
 # Distribution of code?
 
