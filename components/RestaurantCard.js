@@ -1,11 +1,12 @@
 import React from "react";
 import { imgLink } from "./utils/content";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = ({ resData }) => {
   // console.log(resData, "data");
 
   return (
-    <div>
+    <Link className="removeSty" to={`restaurant/${resData.info.id}`}>
       <div className="res_card">
         <img
           className="adj_res_card_img"
@@ -33,7 +34,7 @@ const RestaurantCard = ({ resData }) => {
         </p>
         <p>{resData.info.costForTwo}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 

@@ -13,7 +13,7 @@
   margin: 10px;
 }
 
-.nav > img {
+.nav > a > img {
   width: 100px;
 }
 
@@ -25,6 +25,11 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+li > a {
+  text-decoration: none;
+  color: black;
 }
 
 .login {
@@ -76,6 +81,11 @@ li {
 
 .adj_res_card_img {
   height: 210px;
+}
+
+.removeSty {
+  text-decoration: none;
+  color: black;
 }
 
 /* shimmer UI */

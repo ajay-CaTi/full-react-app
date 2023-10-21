@@ -17,6 +17,10 @@ React, and other Liberaries and Framework build with a compt of Menupulation of 
 
 The crossorigin attribute sets the mode of the request to an HTTP CORS Request. Web pages often make requests to load resources on other servers. Here is where CORS comes in. A cross-origin request is a request for a resource (e.g. style sheets, iframes, images, fonts, or scripts) from another domain.
 
+# server-side routing, client-side routing
+
+Unlike server-side routing, client-side routing involves JavaScript handling the routing process internally. In client-side routing, a request to the server is prevented when a user clicks a link, hence no page refresh even when the URL changes.
+
 # How to load in https
 
 npx parcel index.html --https

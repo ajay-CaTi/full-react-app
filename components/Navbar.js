@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import logo from "../images/food.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [first, setfirst] = useState("Logout");
   return (
     <nav className="nav">
-      <img src={logo} alt="siteLogo" />
+      <Link>
+        <img src={logo} alt="siteLogo" />
+      </Link>
       <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>
+          <Link to={"/"}>Home</Link>
+        </li>
+        <li>
+          <Link to={"/about"}>About</Link>
+        </li>
+        <li>
+          <Link to={"/contact"}>Contact</Link>
+        </li>
         <li>Services</li>
         <li>
           <button
