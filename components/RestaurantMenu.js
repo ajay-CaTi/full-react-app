@@ -1,34 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ShimmerUi from "./ShimmerUi";
-import { useParams } from "react-router-dom";
-import { resApi } from "./utils/content";
 import { imgLink } from "./utils/content";
+import useRestaurantMenu from "./useRestaurantMenu";
+import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [hInfo, setHInfo] = useState(null);
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(`${resApi}${resId}`);
-    const json = await data.json();
-    console.log(json);
-    setHInfo(json);
-
-    // setResInfo(
-    //   json?.data?.cards[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     ? json?.data?.cards[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     : json?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     ? json?.data?.cards[1]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     : json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     ? json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    //     : json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-    // );
-  };
-  console.log(hInfo);
+  const hInfo = useRestaurantMenu(resId);
 
   if (hInfo === null) {
     return <ShimmerUi />;
