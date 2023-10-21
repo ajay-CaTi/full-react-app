@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import logo from "../images/food.png";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "./useOnlineStatus";
 
 const Navbar = () => {
   const [first, setfirst] = useState("Logout");
+  const onlineStatus = useOnlineStatus();
   return (
     <nav className="nav">
       <Link>
@@ -19,7 +21,11 @@ const Navbar = () => {
         <li>
           <Link to={"/contact"}>Contact</Link>
         </li>
+        <li>
+          <Link to={"/grocery"}>Grocery</Link>
+        </li>
         <li>Services</li>
+        <li>status: {onlineStatus ? "🟢" : "🔴"}</li>
         <li>
           <button
             onClick={() => {

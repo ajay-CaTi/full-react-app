@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { restaurantsDataApi } from "./utils/content";
 import ShimmerUi from "./ShimmerUi";
+import useOnlineStatus from "./useOnlineStatus";
 
 // console.log(resObj);
 
@@ -9,6 +10,8 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [searchtext, setSearchtext] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -26,6 +29,10 @@ const Body = () => {
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (onlineStatus === false) {
+    return <h1>Looks like Ur internet is broke..</h1>;
+  }
 
   if (listOfRestaurants.length === 0) {
     console.log("first", listOfRestaurants.length);
