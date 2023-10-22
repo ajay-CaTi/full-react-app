@@ -23,19 +23,19 @@ const RestaurantMenu = () => {
     cuisines,
     cloudinaryImageId,
   } = hInfo?.data?.cards[0]?.card?.card?.info;
-  console.log(
-    name,
-    avgRating,
-    costForTwo,
-    costForTwoMessage,
-    cuisines,
-    cloudinaryImageId
-  );
+  // console.log(
+  //   name,
+  //   avgRating,
+  //   costForTwo,
+  //   costForTwoMessage,
+  //   cuisines,
+  //   cloudinaryImageId
+  // );
 
-  console.log(
-    hInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card
-  );
+  // console.log(
+  //   hInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+  //     ?.card
+  // );
 
   // filter resturant data from here
 

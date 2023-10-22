@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import RestaurantCard, { WithOpen } from "./RestaurantCard";
 import { restaurantsDataApi } from "./utils/content";
 import ShimmerUi from "./ShimmerUi";
 import useOnlineStatus from "./useOnlineStatus";
+import UserContext from "./utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurant, setFilterRestaurant] = useState([]);
   const [searchtext, setSearchtext] = useState("");
+  const { setUserName, loggedUser } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
   const RestaurantCardOpen = WithOpen(RestaurantCard);
@@ -19,7 +21,7 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(`${restaurantsDataApi}`);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
 
     setListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -34,11 +36,11 @@ const Body = () => {
   }
 
   if (listOfRestaurants.length === 0) {
-    console.log("first", listOfRestaurants.length);
+    // console.log("first", listOfRestaurants.length);
     return <ShimmerUi />;
   }
 
-  console.log(listOfRestaurants);
+  // console.log(listOfRestaurants);
 
   return (
     <div className="body">
@@ -66,7 +68,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="bg-blue-200 p-1 rounded-md"
+          className="bg-blue-200 p-1 rounded-md mx-2"
           onClick={() => {
             const filterTopRes = listOfRestaurants.filter(
               (val) => val.info.avgRating > 4.3
@@ -76,6 +78,13 @@ const Body = () => {
         >
           Top Restaurants
         </button>
+        <label htmlFor="name">User: </label>
+        <input
+          type="text"
+          name="name"
+          value={loggedUser}
+          onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
 
       <div className="flex flex-wrap justify-between">

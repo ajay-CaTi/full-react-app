@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../images/food.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
+import UserContext from "./utils/UserContext";
 
 const Navbar = () => {
   const [first, setfirst] = useState("Logout");
   const onlineStatus = useOnlineStatus();
+  const data = useContext(UserContext);
+  // console.log(data);
+  let { loggedUser } = data;
+
   return (
     <nav className="flex items-center justify-between m-4  sm:bg-pink-200 border rounded-lg pe-3 lg:bg-blue-200 xl:bg-green-200">
       <Link>
@@ -25,7 +30,9 @@ const Navbar = () => {
           <Link to={"/grocery"}>Grocery</Link>
         </li>
         <li>Services</li>
-        <li>status: {onlineStatus ? "🟢" : "🔴"}</li>
+        <li>
+          status: {onlineStatus ? "🟢" : "🔴"} {loggedUser}
+        </li>
         <li>
           <button
             onClick={() => {
