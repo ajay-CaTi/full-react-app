@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   const { title, itemCards } = data;
   return (
     <div className="w-3/4 cursor-pointer  bg-gray-200 shadow-lg m-auto  rounded-lg">
@@ -10,7 +9,7 @@ const RestaurantCategory = ({ data }) => {
       <div
         onClick={() => {
           console.log("click");
-          setShowItems(!showItems);
+          setShowIndex();
         }}
         className=" p-4 flex justify-between m-2 font-bold"
       >

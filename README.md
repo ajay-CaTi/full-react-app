@@ -67,6 +67,8 @@ npx parcel build index.html
 config driven UI
 UI and data layer
 
+# Controlled and uncontrolled component?
+
 # Why we use key in React js ?
 
 Keys are used in React to identify which items in the list are changed, updated, or deleted.
