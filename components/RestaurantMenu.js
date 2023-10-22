@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ShimmerUi from "./ShimmerUi";
 import { imgLink } from "./utils/content";
 import useRestaurantMenu from "./useRestaurantMenu";
 import { useParams } from "react-router-dom";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -35,7 +36,7 @@ const RestaurantMenu = () => {
       ?.card
   );
 
-  // here
+  // filter resturant data from here
 
   let dataList =
     hInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[0]?.card
@@ -49,30 +50,35 @@ const RestaurantMenu = () => {
 
   console.log(hInfo?.data?.cards[0]?.card?.card?.info);
 
-  // let items = resInfo.filter((val) => {
-  //   return val?.card?.card["@type"].includes(
-  //     "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  //   );
-  // });
+  console.log(hInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+  let categories =
+    hInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (val) => {
+        return val?.card?.card["@type"].includes(
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        );
+      }
+    );
 
-  console.log(hInfo);
+  console.log(categories);
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>Our Menu U find something Tasty</h1>
-      <div className="menu">
-        <h1>{name}</h1>
-        <h2>{avgRating}</h2>
-        <h2>{costForTwo / 100 || costForTwoMessage}</h2>
+      <div className="text-center">
+        <h1 className="font-bold my-6 text-2xl">{name}</h1>
+        <p className="font-bold text-lg">
+          {avgRating} ₹{costForTwo / 100 || costForTwoMessage}- for two
+        </p>
+        <h2></h2>
         <h2>{cuisines.join(", ")}</h2>
-        <img width={"200px"} src={imgLink + cloudinaryImageId} alt="" />
-        {dataList.map((item) => {
-          return (
-            <h3 key={item.card.info.id}>
-              {item.card.info.name} -{" "}
-              {item.card.info.price / 100 || item.card.info.defaultPrice}
-            </h3>
-          );
+        <img
+          className="m-auto rounded-lg"
+          width={"200px"}
+          src={imgLink + cloudinaryImageId}
+          alt=""
+        />
+        {categories.map((category, ind) => {
+          return <RestaurantCategory key={ind} data={category?.card?.card} />;
         })}
       </div>
     </div>

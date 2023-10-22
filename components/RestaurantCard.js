@@ -3,7 +3,6 @@ import { imgLink } from "./utils/content";
 import { Link } from "react-router-dom";
 
 const RestaurantCard = ({ data }) => {
-  // console.log(resData, 'resData')
   const{resData}=data;
   return (
     <Link className="border rounded-md" to={`restaurant/${resData.info.id}`}>
