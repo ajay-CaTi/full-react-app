@@ -7,11 +7,11 @@ const Navbar = () => {
   const [first, setfirst] = useState("Logout");
   const onlineStatus = useOnlineStatus();
   return (
-    <nav className="nav">
+    <nav className="flex items-center justify-between m-4  sm:bg-pink-200 border rounded-lg pe-3 lg:bg-blue-200 xl:bg-green-200">
       <Link>
-        <img src={logo} alt="siteLogo" />
+        <img className="w-24" src={logo} alt="siteLogo" />
       </Link>
-      <ul>
+      <ul className="flex gap-2">
         <li>
           <Link to={"/"}>Home</Link>
         </li>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { WithOpen } from "./RestaurantCard";
 import { restaurantsDataApi } from "./utils/content";
 import ShimmerUi from "./ShimmerUi";
 import useOnlineStatus from "./useOnlineStatus";
-
-// console.log(resObj);
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -12,6 +10,7 @@ const Body = () => {
   const [searchtext, setSearchtext] = useState("");
 
   const onlineStatus = useOnlineStatus();
+  const RestaurantCardOpen = WithOpen(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -39,10 +38,13 @@ const Body = () => {
     return <ShimmerUi />;
   }
 
+  console.log(listOfRestaurants);
+
   return (
     <div className="body">
-      <div className="search">
+      <div className="px-4 pb-4">
         <input
+          className="border-solid	border-2 rounded-md"
           type="search"
           onChange={(e) => {
             setSearchtext(e.target.value);
@@ -50,6 +52,7 @@ const Body = () => {
           value={searchtext}
         />
         <button
+          className="mx-5 bg-blue-200 p-1 rounded-md"
           onClick={() => {
             let searchData = listOfRestaurants.filter((val) => {
               console.log(val.info.name.includes(searchtext));
@@ -63,7 +66,7 @@ const Body = () => {
           Search
         </button>
         <button
-          className="top_restaurants"
+          className="bg-blue-200 p-1 rounded-md"
           onClick={() => {
             const filterTopRes = listOfRestaurants.filter(
               (val) => val.info.avgRating > 4.3
@@ -75,11 +78,16 @@ const Body = () => {
         </button>
       </div>
 
-      <div className="res_card_container">
+      <div className="flex flex-wrap justify-between">
         {filterRestaurant.map((val) => {
           return (
-            <div key={val.info.id}>
-              <RestaurantCard resData={val} />
+            <div className="" key={val.info.id}>
+              {/* if res is open then retirn opened card */}
+              {val.info.isOpen ? (
+                <RestaurantCardOpen resData={val} />
+              ) : (
+                <RestaurantCard resData={val} />
+              )}
             </div>
           );
         })}
