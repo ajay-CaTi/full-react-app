@@ -1,8 +1,16 @@
 import React from "react";
+import { addItem } from "./utils/cartSlice";
 import { imgLink } from "./utils/content";
+import { useDispatch } from "react-redux";
 
 const ItemList = ({ items }) => {
-  //   console.log(items);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    // dispatch an action
+    // inide addIem is payload
+    dispatch(addItem(item));
+  };
 
   return (
     <div>
@@ -15,14 +23,19 @@ const ItemList = ({ items }) => {
             <div className="flex flex-col text-left w-9/12">
               <span className="font-bold">{item.card.info.name}</span>
               <span className="text-sm font-bold">
-                ₹{item.card.info.price / 100}
+                ₹
+                {item.card.info.price / 100 ||
+                  item.card.info.defaultPrice / 100}
               </span>
               <p className="text-xs">{item.card.info.description}</p>
             </div>
 
             <div className="w-3/12">
               <div className="absolute">
-                <button className="bg-black w-14 mx-11 rounded-lg p-1 text-white">
+                <button
+                  onClick={() => handleAddItem(item)}
+                  className="bg-black w-14 mx-11 rounded-lg p-1 text-white"
+                >
                   Add+
                 </button>
               </div>

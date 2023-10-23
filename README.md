@@ -69,6 +69,56 @@ UI and data layer
 
 # Controlled and uncontrolled component?
 
+# What is Redux?
+
+Redux is like big giant js object and data is kept in central place.
+
+Giant store have slice in which data is stored
+
+- Slices:- Keeps data seperate
+
+Click a button
+
+- Dispatch an Action.
+- Action call a function(Reducer).
+- Function internally modify the slice in Store.
+- Selector provides data to cart Store.
+- This process is known as Subscribing to the Store.
+
+# Redux toolkit
+
+- npm install @reduxjs/toolkit
+- Build our Store
+- Connect ur store
+- Slice(cartSlice)
+- Dispatch
+- Selector
+
+- createSlice:- takes a configuration(1. name of slice 2. initialState 3. reducers)
+
+- reducers:- inside this have function corresponding to each action
+
+- export actions and export reducers
+
+- WHen creating our appStore inside it one big REDUCER & this reducer contain multiple - WHen creating our appStore inside it one big REDUCER & this reducer contain multiple - WHen creating our appStore inside it one big REDUCER & this reducer contain multiple REDUCERs
+
+- But when we create SLICE we create multiple REDUCERS
+
+# What is immer ?
+
+Redux uses immer library, immer find diff between original and mutated state and gives new state.
+
+# Machine coding?
+
+- Features
+- Redux
+- Tailwind
+- react-router-dom
+- bundler
+- test jest
+
+-Planning
+
 # Why we use key in React js ?
 
 Keys are used in React to identify which items in the list are changed, updated, or deleted.

@@ -3,12 +3,15 @@ import logo from "../images/food.png";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
 import UserContext from "./utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [first, setfirst] = useState("Logout");
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const onlineStatus = useOnlineStatus();
   const data = useContext(UserContext);
-  // console.log(data);
+
   let { loggedUser } = data;
 
   return (
@@ -29,7 +32,9 @@ const Navbar = () => {
         <li>
           <Link to={"/grocery"}>Grocery</Link>
         </li>
-        <li>Services</li>
+        <li className="font-bold">
+          <Link to={"/cart"}>Cart ({cartItems.length})</Link>
+        </li>
         <li>
           status: {onlineStatus ? "🟢" : "🔴"} {loggedUser}
         </li>
